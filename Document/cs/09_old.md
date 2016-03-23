@@ -352,7 +352,7 @@ namespace STG
         public virtual void OnCollide(ICollidable obj)
         {
             // ゲームからオブジェクトを消滅させる
-            Vanish();
+            Dispose();
         }
 ```
 
@@ -363,7 +363,7 @@ namespace STG
         public void OnCollide(ICollidable obj)
         {
             // ゲームからオブジェクトを消滅させる
-            Vanish();
+            Dispose();
         }
 ```
 
@@ -478,7 +478,7 @@ public abstract class Enemy : ace.TextureObject2D, ICollidable
 
         public virtual void OnCollide(ICollidable obj)
         {
-            Vanish();
+            Dispose();
         }
 
 +        // 自機の弾との当たり判定をコントロールするメソッド
@@ -539,7 +539,7 @@ public abstract class Enemy : ace.TextureObject2D, ICollidable
 
         public void OnCollide(ICollidable obj)
         {
-            Vanish();
+            Dispose();
         }
 
 +        // 敵の弾との当たり判定をコントロールするメソッド
