@@ -5,7 +5,7 @@ import os
 
 dstDir = "Extract"
 
-class stg_lecture_section:
+class section_of_lecture:
     def __init__(self, name):
         self.name = name
         self.projDir = "{0}/{1}/{1}".format(dstDir, self.name)
@@ -37,17 +37,21 @@ def moveToWorkingDir():
     os.chdir(os.path.dirname(__file__))
     os.chdir("..")
 
+# ‚±‚ÌŠÖ”‚Ì’l‚È‚Ç‚ð‘‚«Š·‚¦‚Ä‰ð“€‘ÎÛ‚ðŒˆ‚ß‚ç‚ê‚Ü‚·
 def getSectionNames():
-    indexes = range(3, 6)
+    indexes = [x for x in range(2, 19)] + [22]
     sectionNames = ["STG{0:0>2}".format(i) for i in indexes]
     sectionNames[len(sectionNames):] = ["STG01_Start", "STG01_End", "STG02_Start"]
     return sectionNames
 
 if __name__ == "__main__":
     moveToWorkingDir()
+    if not os.path.exists(dstDir):
+        os.mkdir(dstDir)
     sectionNames = getSectionNames()
     for name in sectionNames:
-        section = stg_lecture_section(name)
+        print("Extracting {0}...".format(name))
+        section = section_of_lecture(name)
         section.remove()
         section.extractZip()
         section.normalize()

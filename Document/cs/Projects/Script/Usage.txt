@@ -1,0 +1,12 @@
+# ExtractAll.py
+実行するとプロジェクトのzipをExtractフォルダに解凍し、必要なランタイムなどをセットアップします。
+ここ(Scriptフォルダ)に以下のものを置いてから実行する必要があります。
+* Altseed.dll
+* Altseed.XML
+* Altseed_core.dll
+* Resourcesフォルダ
+
+# ArchiveAll.py
+実行するとExtractフォルダ内のプロジェクトのフォルダを圧縮してArchiveフォルダ内に置きます。
+Extractフォルダ内に解凍されたプロジェクトのフォルダ群がある必要があります。
+現状、生成される22章のzipファイルは中身がいくらか欠けています。
