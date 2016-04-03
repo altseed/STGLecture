@@ -5,7 +5,7 @@ import shutil
 
 srcDir = "Extract"
 dstDir = "Archive"
-whitelist = [".txt", ".cs", ".sln", ".csproj", ".config"]
+whitelist = [".txt", ".cs", ".sln", ".csproj"]
 
 class section_of_lecture:
     def __init__(self, name):
@@ -18,9 +18,15 @@ class section_of_lecture:
     def archive(self):
         zip = zipfileJp.ZipFile(self.zipPath, "w")
         for dirPath, dirNames, fileNames in os.walk(self.projPath):
+            if dirPath.count("obj") > 0:
+                continue
             for fn in fileNames:
                 path, ext = os.path.splitext(fn)
                 if ext in whitelist:
+                    srcPath = os.path.join(dirPath, fn)
+                    arcname = os.path.relpath(srcPath, self.projPath)
+                    zip.write(srcPath, arcname)
+                if fn == "App.config":
                     srcPath = os.path.join(dirPath, fn)
                     arcname = os.path.relpath(srcPath, self.projPath)
                     zip.write(srcPath, arcname)

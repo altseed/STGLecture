@@ -1,6 +1,6 @@
 # ExtractAll.py
 実行するとプロジェクトのzipをExtractフォルダに解凍し、必要なランタイムなどをセットアップします。
-ここ(Scriptフォルダ)に以下のものを置いてから実行する必要があります。
+ここ(Scriptフォルダ)に以下のものを置いてから実行する必要があります。(これらのファイルを各プロジェクトへコピーします。)
 * Altseed.dll
 * Altseed.XML
 * Altseed_core.dll
