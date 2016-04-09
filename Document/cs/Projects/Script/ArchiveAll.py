@@ -1,6 +1,6 @@
 # coding: shift_jis
 import os
-import zipfileJp
+import zipfile
 import shutil
 
 srcDir = "Extract"
@@ -16,20 +16,16 @@ class section_of_lecture:
         if os.path.exists(self.zipPath):
             os.remove(self.zipPath)
     def archive(self):
-        zip = zipfileJp.ZipFile(self.zipPath, "w")
+        zip = zipfile.ZipFile(self.zipPath, "w")
         for dirPath, dirNames, fileNames in os.walk(self.projPath):
             if dirPath.count("obj") > 0:
                 continue
             for fn in fileNames:
                 path, ext = os.path.splitext(fn)
-                if ext in whitelist:
+                if ext in whitelist or fn == "App.config":
                     srcPath = os.path.join(dirPath, fn)
                     arcname = os.path.relpath(srcPath, self.projPath)
-                    zip.write(srcPath, arcname)
-                if fn == "App.config":
-                    srcPath = os.path.join(dirPath, fn)
-                    arcname = os.path.relpath(srcPath, self.projPath)
-                    zip.write(srcPath, arcname)
+                    zip.write(srcPath, arcname.encode("cp932").decode("cp932"))
         zip.close()
 
 def moveToWorkingDir():
@@ -38,6 +34,7 @@ def moveToWorkingDir():
 
 # この関数の値などを書き換えて圧縮対象を決められます
 def getSectionNames():
+    return ["STG02"]
     indexes = [x for x in range(2, 19)] + [22]
     sectionNames = ["STG{0:0>2}".format(i) for i in indexes]
     sectionNames[len(sectionNames):] = ["STG01_Start", "STG01_End", "STG02_Start"]

@@ -1,5 +1,5 @@
 # coding: shift_jis
-import zipfileJp
+import zipfile
 import shutil
 import os
 
@@ -13,7 +13,7 @@ class section_of_lecture:
         if os.path.exists("{0}/{1}/".format(dstDir, self.name)):
             shutil.rmtree(dstDir + "/" + self.name)
     def extractZip(self):
-        zip = zipfileJp.ZipFile(self.name + ".zip")
+        zip = zipfile.ZipFile(self.name + ".zip")
         zip.extractall(dstDir + "/" + self.name)
         zip.close()
     def normalize(self):
@@ -39,6 +39,7 @@ def moveToWorkingDir():
 
 # この関数の値などを書き換えて解凍対象を決められます
 def getSectionNames():
+    return ["STG02"]
     indexes = [x for x in range(2, 19)] + [22]
     sectionNames = ["STG{0:0>2}".format(i) for i in indexes]
     sectionNames[len(sectionNames):] = ["STG01_Start", "STG01_End", "STG02_Start"]
