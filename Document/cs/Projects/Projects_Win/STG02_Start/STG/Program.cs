@@ -18,7 +18,7 @@ namespace STG
 			while (asd.Engine.DoEvents())
 			{
 				// もし、Escキーが押されていたらwhileループを抜ける。
-				if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Escape) == asd.KeyState.Push)
+				if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Escape) == asd.ButtonState.Push)
 				{
 					break;
 				}

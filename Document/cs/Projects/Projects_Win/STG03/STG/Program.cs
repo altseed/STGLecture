@@ -33,31 +33,31 @@ namespace STG
 		while (asd.Engine.DoEvents())
 		{
 			// もし、Escキーが押されていたらwhileループを抜ける。
-			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Escape) == asd.KeyState.Push)
+			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Escape) == asd.ButtonState.Push)
 			{
 				break;
 			}
 
 			// もし、上ボタンが押されていたら、位置に(0,-1)を足す。
-			if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Up) == asd.KeyState.Hold)
+			if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Up) == asd.ButtonState.Hold)
 			{
 				player.Position = player.Position + new asd.Vector2DF(0, -1);
 			}
 
 			// もし、下ボタンが押されていたら、位置に(0,+1)を足す。
-			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Down) == asd.KeyState.Hold)
+			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Down) == asd.ButtonState.Hold)
 			{
 				player.Position = player.Position + new asd.Vector2DF(0, +1);
 			}
 
 			// もし、左ボタンが押されていたら、位置に(-1,0)を足す。
-			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Left) == asd.KeyState.Hold)
+			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Left) == asd.ButtonState.Hold)
 			{
 				player.Position = player.Position + new asd.Vector2DF(-1, 0);
 			}
 
 			// もし、左ボタンが押されていたら、位置に(+1,0)を足す。
-			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Right) == asd.KeyState.Hold)
+			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Right) == asd.ButtonState.Hold)
 			{
 				player.Position = player.Position + new asd.Vector2DF(+1, 0);
 			}

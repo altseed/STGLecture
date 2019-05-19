@@ -28,7 +28,7 @@ namespace STG
 		protected override void OnUpdated()
 		{
 			// もし、Zキーを押したら{}内の処理を行う。
-			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Z) == asd.KeyState.Push)
+			if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Z) == asd.ButtonState.Push)
 			{
 				asd.Engine.ChangeSceneWithTransition(new TitleScene(), new asd.TransitionFade(1.0f, 1.0f));
 			}
