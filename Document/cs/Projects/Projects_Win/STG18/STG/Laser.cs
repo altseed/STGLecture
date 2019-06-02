@@ -99,13 +99,13 @@ namespace STG
                 Scale += new asd.Vector2DF(0.1f, 0.1f);
 
                 // Colorでアルファ値を設定する
-                Color = new asd.Color(255, 255, 255, startAlpha);
+                Color = new asd.Color(255, 255, 255, (int)startAlpha);
 
                 // startCountの数だけアルファ値にこれを足したら255（不透明）になるよう設定する
                 startAlpha += (byte)((255-startAlpha)/startCount);
 
                 // 予測線を表示する
-                DrawLineAdditionally(GetGlobalPosition(), destPos, new asd.Color(120, 160, 255, startAlpha), 5, asd.AlphaBlendMode.Add, 0);
+                DrawLineAdditionally(GetGlobalPosition(), destPos, new asd.Color(120, 160, 255, (int)startAlpha), 5, asd.AlphaBlendMode.Add, 0);
             }
 
             // レーザーが照射されている時の処理
